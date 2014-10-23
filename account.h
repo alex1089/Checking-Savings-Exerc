@@ -1,42 +1,35 @@
-// Aleksey Leshchuk
-// Account class implementation
+// Account class header
+// By Aleksey Leshchuk
 // CISP400 AD5
 
-#include "Date.h"
-#include "Account.h"
-#include <iostream>
-#include <iomanip>
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
 #include <string>
-using namespace std;
+#include <Date.h>
 
-
-// Account constructor. Arguments lastName, firstName, initial balance, openDate, updateDate
-Account::Account(const char* lName, const char* fName, const double& bal, const Date& sDate, const Date& uDate):
-    openDate(sDate),
-    updateDate(uDate)
-{
-    setLastName(lName);
-    setFirstName(fName);
-    setBalance(bal);
-}
-
-// credit() adds an amount to the balance, throws invalid argument on error
-void Account::credit(const int& amount, const Date& uDate){
-    if (amount>0 && uDate>updateDate){ // if date and amount are valid
-	balance+=amount;   // add amount to balance if positive number entered 
-    } else {
-	throw invalid_argument("\nInvalid credit argument for: "<<firstName<<" "<<lastName<<"\n");
-    }
-}
-// debit(const int&, const Date&) debits account and updates the updateDate
-void Account::debit(const int& amount, const Date& uDate);
-// getBalance() returns the current balance
-double Account::getBalance() const;
-// print() displays the current account info
-void Account::print() const;
-// setLastName(std::string) validates and initalizes lastName
-void Account::setLastName(const char* lName);
-// setFirstName(std::firstName) validates and sets firstName
-void Account::setFirstName(const char* fName);
-// setBalance(count double&) validate and initialize balance
-void Account::setBalance(const double& bal);
+class Account {
+    public:
+	// Account constructor. Arguments lastName, firstName, initial balance, openDate, updateDate
+	Account(const char*, char*, const double&, const Date&, const Date&);
+	// credit() adds an amount to the balance
+	virtual bool credit(const double&, const Date&);
+	// debit(const int&, const Date&) debits account and updates the updateDate
+	virtual bool debit(const double&, const Date&);
+	// getBalance() returns the current balance
+	double getBalance() const;
+	// print() displays the current account info
+	virtual void print() const;
+    private:
+	// setLastName(std::string) validates and initalizes lastName
+	void setLastName(const char*);
+	// setFirstName(std::firstName) validates and sets firstName
+	void setFirstName(const char*);
+	// setBalance(count double&) validate and initialize balance
+	void setBalance(const double*);
+	std::string lastName;
+	std::string firstName;
+	double balance;
+	const Date openDate;
+	Date updateDate;
+};
+#endif
