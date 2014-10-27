@@ -5,12 +5,12 @@
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 #include <string>
-#include <Date.h>
+#include "Date.h"
 
 class Account {
     public:
 	// Account constructor. Arguments lastName, firstName, initial balance, openDate, updateDate
-	Account(const char*, char*, const double&, const Date&, const Date&);
+	Account(const char*, const char*, const double&, const Date&, const Date&);
 	// credit() adds an amount to the balance
 	virtual bool credit(const double&, const Date&);
 	// debit(const int&, const Date&) debits account and updates the updateDate
@@ -25,7 +25,7 @@ class Account {
 	// setFirstName(std::firstName) validates and sets firstName
 	void setFirstName(const char*);
 	// setBalance(count double&) validate and initialize balance
-	void setBalance(const double*);
+	void setBalance(const double&);
 	std::string lastName;
 	std::string firstName;
 	double balance;

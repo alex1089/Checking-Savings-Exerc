@@ -7,6 +7,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <cstring>  // for strlen()
 using namespace std;
 
 
@@ -47,9 +48,9 @@ double Account::getBalance() const{
 // print() displays the current account info
 void Account::print() const{
     cout<<firstName<<" "<<lastName<<endl;
-    cout<<"A/C Open "<<openDate.print()<<endl;
-    cout<<"A/C Updated "<<updateDate.print()<<endl;
-    cout<<"A/C Balance "<<balance<<endl;
+    cout<<"\nA/C Open "; openDate.print();
+    cout<<"\nA/C Updated "; updateDate.print();
+    cout<<"\nA/C Balance "<<balance<<endl;
 }
 // setLastName(std::string) validates and initalizes lastName
 void Account::setLastName(const char* lName){
@@ -61,9 +62,9 @@ void Account::setLastName(const char* lName){
 // setFirstName(std::firstName) validates and sets firstName
 void Account::setFirstName(const char* fName){
     if (strlen(fName)<=10) // limit first name to 10 chars
-	firstName.assign(lName);
+	firstName.assign(fName);
     else 
-	firstName(lName,10);
+	firstName.assign(fName,10);
 }
 // setBalance(count double&) validate and initialize balance
 void Account::setBalance(const double& bal){
