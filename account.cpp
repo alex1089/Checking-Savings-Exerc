@@ -75,3 +75,11 @@ void Account::setBalance(const double& bal){
 	cout<<"Invalid balance entered, reset to $0.0\n";
     }
 }
+// getFirstName() returns firstName string object
+std::string Account::getFirstName() const{
+    return firstName;
+}
+// getLastName() returns lastName string object
+std::string Account::getLastName() const{
+    return lastName;
+}

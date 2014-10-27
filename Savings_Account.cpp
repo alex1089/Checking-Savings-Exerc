@@ -4,6 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include "Savings_Account.h"
+using namespace std;
 
 // Savings_Account constructor, initializes LastName, FirstName, Balance, InterestRate, OpenDate, UpdateDate
 Savings_Account::Savings_Account(
@@ -20,14 +21,33 @@ Savings_Account::Savings_Account(
 }
 // calculateInterest() calculates interest for 1 period, returns the value
 double Savings_Account::calculateInterest() const {
-    return interestRate*getBalance();
+    return getInterestRate()*getBalance();
 }
 // addInterest(Date) add interest for 1 period to the account, displays results, updates lastUpdate
 void Savings_Account::addInterest(const Date& uDate) {
-    credit(getBalance()*interestRate,uDate);
+    cout<<endl<<getFirstName()<<endl<<getLastName();
+    cout<<setprecision(2)<<fixed<<"\nBalance: "<<getBalance()<<" Interest rate: "<<interestRate;
+    cout<<"\nInterest "<<calculateInterest()<<" add into balance";
+    credit(calculateInterest(),uDate);
+    cout<<"\nThe new balance is $"<<getBalance()<<endl<<endl;
 }
 // final virtual print() prints account information
-void Savings_Account::print() const {}
+void Savings_Account::print() const {
+    cout<<"\nSavings Account:\n";
+    Account::print();
+    cout<<"\nInterest Rate: "<<getInterestRate()<<endl;
+}
 // setInterestRate(double) validates, sets the interest rate, set to 0 if invalid, print results
-void Savings_Account::setInterestRate(const double&){}
-	
+void Savings_Account::setInterestRate(const double& interRate){
+    if (interRate>0.0){
+	interestRate=interRate;
+    } else {		// if interest rate is <0, set to 0 and display account info
+	interestRate=0;
+	print();
+    }
+}
+
+// getInterestRate() returns the current interest rate
+double Savings_Account::getInterestRate() const {
+    return interestRate;
+}

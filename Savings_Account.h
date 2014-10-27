@@ -18,6 +18,8 @@ class Savings_Account: public Account {
 	void print() const final;
 	// setInterestRate(double) validates, sets the interest rate, set to 0 if invalid, print results
 	void setInterestRate(const double&);
+	// getInterestRate() returns interestRate
+	double getInterestRate() const;
     private:
 	double interestRate;
 };

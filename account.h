@@ -19,6 +19,10 @@ class Account {
 	double getBalance() const;
 	// print() displays the current account info
 	virtual void print() const;
+	// getFirstName() returns firstName string object
+	std::string getFirstName() const;
+	// getLastName() returns lastName string object
+	std::string getLastName() const;
     private:
 	// setLastName(std::string) validates and initalizes lastName
 	void setLastName(const char*);
