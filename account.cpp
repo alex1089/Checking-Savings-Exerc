@@ -83,3 +83,7 @@ std::string Account::getFirstName() const{
 std::string Account::getLastName() const{
     return lastName;
 }
+// getUpdateDate() returns updateDate object
+Date Account::getUpdateDate() const{
+    return updateDate;
+}

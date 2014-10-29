@@ -23,6 +23,8 @@ class Account {
 	std::string getFirstName() const;
 	// getLastName() returns lastName string object
 	std::string getLastName() const;
+	// getUpdateDate() returns updateDate object
+	Date getUpdateDate() const{
     private:
 	// setLastName(std::string) validates and initalizes lastName
 	void setLastName(const char*);
