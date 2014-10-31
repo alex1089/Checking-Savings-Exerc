@@ -22,7 +22,7 @@ bool Checking_Account::debit(const double& amount, const Date& updateDate)
 {
     bool success=false;	    // result of debit
     if (Account::debit(amount, updateDate)){ // if debit is successfull 
-	chargeFee();
+	chargeFee(updateDate);
 	success=true;
     } else {
 	cout<<"\n"<<getFirstName()<<" "<<getFirstName();
@@ -42,10 +42,10 @@ double Checking_Account::getTransactionFee() const
 {
     return transactionFee;
 }
-// chargeFee() debits transactionFee from balance, prints confirmation
-void Checking_Account::chargeFee()
+// chargeFee(Date) debits transactionFee from balance, prints confirmation
+void Checking_Account::chargeFee(const Date& updateDate)
 {
-    if (Account::debit(transactionFee,getUpdateDate())){    // if transfaction fee charged successfully
+    if (Account::debit(transactionFee,updateDate)){    // if transfaction fee charged successfully
 	cout<<"\n"<<getFirstName()<<" "<<getLastName();
 	cout<<"\n $"<<transactionFee<<" transaction fee charged.\n";
     } else {

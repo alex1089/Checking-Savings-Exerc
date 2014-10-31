@@ -6,6 +6,7 @@
 #include "Savings_Account.h"
 #include "Account.h"
 #include "Date.h"
+#include <iostream>
 using namespace std;
 
 int main(){
@@ -29,7 +30,7 @@ int main(){
 	i->print();
 
     // display adjustments to the accounts on 5/5/2014
-    cout<<"\n"<<May5th2014.print()<<" account adjusted based on the following schedule:";
+    cout<<"\nOn 5/5/2014 accounts adjusted based on the following schedule:";
     cout<<"\n1. Susan Baker had a $40 debit.";
     cout<<"\n2. Robert JOnes had a $40 debit.";
     cout<<"\n3. Chao Zulueta had a $30 credit.";
@@ -47,17 +48,17 @@ int main(){
     account_array[2]->credit(30,May5th2014);
     account_array[3]->credit(50,May5th2014);
     // cast to call Savings_Account method on a base class pointer
-    dynamic_cast<Savings_Account>(account_array[4])->addInterest(May5th2014);
+    dynamic_cast<Savings_Account*>(account_array[4])->addInterest(May5th2014);
     // cast to call Checking_Account method on base class pointer
-    dynamic_cast<Checking_Account>(account_array[5])->chargeTransactionFee(May5th2014);
+    dynamic_cast<Checking_Account*>(account_array[5])->chargeFee(May5th2014);
     // cast to call Savings_Account method on a base class pointer
-    dynamic_cast<Savings_Account>(account_array[6])->addInterest(May5th2014);
+    dynamic_cast<Savings_Account*>(account_array[6])->addInterest(May5th2014);
     // cast to call Checking_Account method on a base class pointer
-    dynamic_cast<Checking_Account>(account_array[7])->chargeTransactionFee(May5th2014);
+    dynamic_cast<Checking_Account*>(account_array[7])->chargeFee(May5th2014);
     account_array[8]->debit(60,May5th2014);
     account_array[9]->debit(100,May5th2014);
 
-    cout << "\n\n***After the 5/5/2014 update, the Accounts information***\n;
+    cout << "\n\n***After the 5/5/2014 update, the Accounts information***\n";
     // display account information for all accounts
     for (const Account* i:account_array)
 	i->print();
