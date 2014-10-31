@@ -20,14 +20,22 @@ Checking_Account::Checking_Account(
 }
 bool Checking_Account::debit(const double& amount, const Date& updateDate)
 {
-    if (Account::debit(amount, updateDate)) // if debit is successfull 
+    bool success=false;	    // result of debit
+    if (Account::debit(amount, updateDate)){ // if debit is successfull 
 	chargeFee();
+	success=true;
+    } else {
+	cout<<"\n"<<getFirstName()<<" "<<getFirstName();
+	cout<<setprecision(2)<<fixed<<"\nBalance is $"<<getBalance()<<" and debit is $"<<amount;
+	cout<<"\nDebit amount exceeded account balance. The request is returned.";
+    }
+    return success;	// retrun result of operation
 }
 void Checking_Account::print() const 
 {
-    cout<<"\nChecking Account:\n";
+    cout<<"\nChecking Account:";
     Account::print();
-    cout<<"Transaction Fee: $"<<getTransactionFee();
+    cout<<"\nTransaction Fee: $"<<getTransactionFee()<<endl;
 }
 // getTransactionFee() returns transaction fee
 double Checking_Account::getTransactionFee() const 
@@ -38,6 +46,7 @@ double Checking_Account::getTransactionFee() const
 void Checking_Account::chargeFee()
 {
     if (Account::debit(transactionFee,getUpdateDate())){    // if transfaction fee charged successfully
+	cout<<"\n"<<getFirstName()<<" "<<getLastName();
 	cout<<"\n $"<<transactionFee<<" transaction fee charged.\n";
     } else {
 	cout<<"\nInsufficient funds, unable to charge transaction fee.\n";
@@ -46,5 +55,12 @@ void Checking_Account::chargeFee()
 // setTransactionFee(double,Date) validates and sets the transaction fee
 void Checking_Account::setTransactionFee(const double& transFee, const Date& updateDate)
 {
+    Account::setUpdateDate(updateDate); // update updateDate object
+    if (transFee<0.0){	    // if transaction fee is less than 0
+	cout<<Account::getFirstName()<<" "<<Account::getLastName()<<endl;
+	cout<<"\nTransaction fee cannot be less than $0.00";
+	transactionFee=0.0;
+    } else {		// if transaction fee is valid
+	transactionFee=transFee;
+    }
 }
- 

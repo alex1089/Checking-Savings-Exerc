@@ -16,8 +16,8 @@ class Savings_Account: public Account {
 	void addInterest(const Date&);
 	// final virtual print() prints account information
 	void print() const final;
-	// setInterestRate(double) validates, sets the interest rate, set to 0 if invalid, print results
-	void setInterestRate(const double&);
+	// setInterestRate(double,Date) validates, sets the interest rate, set to 0 if invalid, print results
+	void setInterestRate(const double&, const Date&);
 	// getInterestRate() returns interestRate
 	double getInterestRate() const;
     private:

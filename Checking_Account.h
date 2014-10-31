@@ -7,7 +7,7 @@
 #include "Account.h" // include parent class
 #include "Date.h"   // include Date member object definition
 
-class Checking_Account: Account {
+class Checking_Account: public Account {
     public:
 	// Checking_Account constructor, arguments: lName, fName, balance, fee, openDate, updateDate
 	Checking_Account(const char*, const char*, const double&, const double&, const Date&, const Date&);
@@ -17,7 +17,7 @@ class Checking_Account: Account {
 	// setTransactionFee(double,Date) validates and sets the transaction fee
 	void setTransactionFee(const double&, const Date&);
 	// getTransactionFee() returns transaction fee
-	double getTransactionFee() const 
+	double getTransactionFee() const;
     private:
 	double transactionFee;
 };

@@ -47,10 +47,10 @@ double Account::getBalance() const{
 }
 // print() displays the current account info
 void Account::print() const{
-    cout<<firstName<<" "<<lastName<<endl;
+    cout<<endl<<firstName<<" "<<lastName;
     cout<<"\nA/C Open "; openDate.print();
     cout<<"\nA/C Updated "; updateDate.print();
-    cout<<"\nA/C Balance "<<balance<<endl;
+    cout<<"\nA/C Balance $"<<balance;
 }
 // setLastName(std::string) validates and initalizes lastName
 void Account::setLastName(const char* lName){
@@ -86,4 +86,8 @@ std::string Account::getLastName() const{
 // getUpdateDate() returns updateDate object
 Date Account::getUpdateDate() const{
     return updateDate;
+}
+// setUpdateDate(Date) updates the updateDate object
+void Account::setUpdateDate(const Date& uDate){
+    updateDate=uDate;
 }

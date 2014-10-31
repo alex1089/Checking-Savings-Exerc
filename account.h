@@ -24,7 +24,11 @@ class Account {
 	// getLastName() returns lastName string object
 	std::string getLastName() const;
 	// getUpdateDate() returns updateDate object
-	Date getUpdateDate() const{
+	Date getUpdateDate() const;
+	// setUpdateDate(Date) updates the updateDate object
+	void setUpdateDate(const Date& uDate);
+	// virtual destructor
+	virtual ~Account(){} 
     private:
 	// setLastName(std::string) validates and initalizes lastName
 	void setLastName(const char*);
