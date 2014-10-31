@@ -47,7 +47,7 @@ void Checking_Account::chargeFee(const Date& updateDate)
 {
     if (Account::debit(transactionFee,updateDate)){    // if transfaction fee charged successfully
 	cout<<"\n"<<getFirstName()<<" "<<getLastName();
-	cout<<"\n $"<<transactionFee<<" transaction fee charged.\n";
+	cout<<"\n$"<<transactionFee<<" transaction fee charged.\n";
     } else {
 	cout<<"\nInsufficient funds, unable to charge transaction fee.\n";
     }

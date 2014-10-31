@@ -34,10 +34,13 @@ bool Account::credit(const double& amount, const Date& uDate){
 // debit(const int&, const Date&) debits account and updates the updateDate
 bool Account::debit(const double& amount, const Date& uDate){
     updateDate=uDate;
-    if (amount>=balance){
+    if (amount<=balance){
 	balance+=amount;
 	return true;
     } else {
+	cout<<"\n"<<getFirstName()<<" "<<getFirstName();
+	cout<<setprecision(2)<<fixed<<"\nBalance is $"<<getBalance()<<" and debit is $"<<amount;
+	cout<<"\nDebit amount exceeded account balance. The request is returned.";
 	return false;
     }
 }
@@ -50,7 +53,7 @@ void Account::print() const{
     cout<<endl<<firstName<<" "<<lastName;
     cout<<"\nA/C Open "; openDate.print();
     cout<<"\nA/C Updated "; updateDate.print();
-    cout<<"\nA/C Balance $"<<balance;
+    cout<<fixed<<setprecision(2)<<"\nA/C Balance $"<<balance;
 }
 // setLastName(std::string) validates and initalizes lastName
 void Account::setLastName(const char* lName){
