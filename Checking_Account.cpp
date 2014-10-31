@@ -24,11 +24,7 @@ bool Checking_Account::debit(const double& amount, const Date& updateDate)
     if (Account::debit(amount, updateDate)){ // if debit is successfull 
 	chargeFee(updateDate);
 	success=true;
-    } else {
-	cout<<"\n"<<getFirstName()<<" "<<getFirstName();
-	cout<<setprecision(2)<<fixed<<"\nBalance is $"<<getBalance()<<" and debit is $"<<amount;
-	cout<<"\nDebit amount exceeded account balance. The request is returned.";
-    }
+    } 
     return success;	// retrun result of operation
 }
 void Checking_Account::print() const 

@@ -32,7 +32,7 @@ int main(){
     // display adjustments to the accounts on 5/5/2014
     cout<<"\nOn 5/5/2014 accounts adjusted based on the following schedule:";
     cout<<"\n1. Susan Baker had a $40 debit.";
-    cout<<"\n2. Robert JOnes had a $40 debit.";
+    cout<<"\n2. Robert Jones had a $40 debit.";
     cout<<"\n3. Chao Zulueta had a $30 credit.";
     cout<<"\n4. Kenneth Ramirez had a $50 credit.";
     cout<<"\n5. Vue Thomas had accrued interest for a period.";
