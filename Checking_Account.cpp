@@ -45,7 +45,7 @@ void Checking_Account::chargeFee(const Date& updateDate)
 	cout<<"\n"<<getFirstName()<<" "<<getLastName();
 	cout<<"\n$"<<transactionFee<<" transaction fee charged.\n";
     } else {
-	cout<<"\nInsufficient funds, unable to charge transaction fee.\n";
+	cout<<"\nInsufficient funds, unable to charge transaction fee.\n\n";
     }
 }
 // setTransactionFee(double,Date) validates and sets the transaction fee
@@ -54,7 +54,7 @@ void Checking_Account::setTransactionFee(const double& transFee, const Date& upd
     Account::setUpdateDate(updateDate); // update updateDate object
     if (transFee<0.0){	    // if transaction fee is less than 0
 	cout<<Account::getFirstName()<<" "<<Account::getLastName()<<endl;
-	cout<<"\nTransaction fee cannot be less than $0.00";
+	cout<<"\nTransaction fee cannot be less than $0.00"<<endl<<endl;
 	transactionFee=0.0;
     } else {		// if transaction fee is valid
 	transactionFee=transFee;

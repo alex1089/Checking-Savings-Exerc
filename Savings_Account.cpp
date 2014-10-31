@@ -29,7 +29,7 @@ void Savings_Account::addInterest(const Date& uDate) {
     cout<<setprecision(2)<<fixed<<"\nBalance: "<<getBalance()<<" Interest rate: "<<interestRate;
     cout<<"\nInterest "<<calculateInterest()<<" added into balance";
     credit(calculateInterest(),uDate);
-    cout<<"\nThe new balance is $"<<getBalance()<<endl<<endl;
+    cout<<"\nThe new balance is $"<<getBalance()<<endl;
 }
 // final virtual print() prints account information
 void Savings_Account::print() const {

@@ -40,7 +40,7 @@ int main(){
     cout<<"\n7. Romeo Turner had accrued interest for a period.";
     cout<<"\n8. Jimmy Untalaso had a transaction fee charged.";
     cout<<"\n9. Oscar Udonkanga had a $60 debit.";
-    cout<<"\n10. Trocino Terrence had a $100 debit.";
+    cout<<"\n10. Trocino Terrence had a $100 debit.\n";
     
     // make adjustments to each account
     account_array[0]->debit(40,May5th2014);
@@ -63,6 +63,8 @@ int main(){
     for (const Account* i:account_array)
 	i->print();
     
+    cout<<"\nOn 8/8/2013 all the saving used the same interest rate(0.05) and all the checking used the same transaction fee($5).\n"; 
+    cout << "\n\n***After the 8/8/2013 update,\nthe Accounts information***\n";
     for ( Account* i:account_array){
 	if ((dynamic_cast<Savings_Account*>(i))!=nullptr){
 	    dynamic_cast<Savings_Account*>(i)->setInterestRate(0.05,Date(8,8,2013));

@@ -35,12 +35,12 @@ bool Account::credit(const double& amount, const Date& uDate){
 bool Account::debit(const double& amount, const Date& uDate){
     updateDate=uDate;
     if (amount<=balance){
-	balance+=amount;
+	balance-=amount;
 	return true;
     } else {
-	cout<<"\n"<<getFirstName()<<" "<<getFirstName();
+	cout<<"\n"<<getFirstName()<<" "<<getLastName();
 	cout<<setprecision(2)<<fixed<<"\nBalance is $"<<getBalance()<<" and debit is $"<<amount;
-	cout<<"\nDebit amount exceeded account balance. The request is returned.";
+	cout<<"\nDebit amount exceeded account balance. The request is returned.\n";
 	return false;
     }
 }
